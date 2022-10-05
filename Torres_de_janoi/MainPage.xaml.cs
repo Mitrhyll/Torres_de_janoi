@@ -46,6 +46,7 @@ namespace Torres_de_janoi
                     case 6: item.Background = Brush.Black; break;
                     case 7: item.Background = Brush.Black; break;
                     case 8: item.Background = Brush.Black; break;
+                        a
 
                 }
             }
