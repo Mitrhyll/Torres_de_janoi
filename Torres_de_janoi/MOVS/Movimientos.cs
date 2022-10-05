@@ -2,7 +2,7 @@
 
 public class Movimiento
 {
-	public Movimiento()
-	{
-	}
+		public int ori { get; set; }
+		public int des { get; set; }
+
 }

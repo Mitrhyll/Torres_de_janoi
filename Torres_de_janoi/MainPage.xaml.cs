@@ -11,7 +11,7 @@ namespace Torres_de_janoi
 {
     public partial class MainPage : ContentPage
     {
-        List<Movimiento> movimiento;
+        List<Movimiento> mov;
         Stack<Button> to1, to2, to3;
         public MainPage()
         {
@@ -20,7 +20,7 @@ namespace Torres_de_janoi
 
         private void Step_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            movs = new List<Movimiento>();
+            mov = new List<Movimiento>();
             to1 = new Stack<Button>();
             to2 = new Stack<Button>();
             to3 = new Stack<Button>();
@@ -76,7 +76,7 @@ namespace Torres_de_janoi
         {
             if(disco == 0)
             {
-                this.movs.Add(new Movimiento { ori = ori, des = des });
+                this.mov.Add(new Movimiento { ori = ori, des = des });
             }
         }
     }
