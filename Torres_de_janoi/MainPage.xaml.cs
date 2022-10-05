@@ -16,11 +16,11 @@ namespace Torres_de_janoi
         public MainPage()
         {
             InitializeComponent();
+            mov = new List<Movimiento>();
         }
 
         private void Step_ValueChanged(object sender, ValueChangedEventArgs e)
         {
-            mov = new List<Movimiento>();
             to1 = new Stack<Button>();
             to2 = new Stack<Button>();
             to3 = new Stack<Button>();
@@ -30,12 +30,12 @@ namespace Torres_de_janoi
             to1.Clear();
             to2.Clear();
             to3.Clear();
-            for (int a = (int)this.Step.Value; a> 0; a--)
+            for (int a = (int)this.Step.Value; a > 0; a--)
             {
                 Button item = new Button();
                 float porce= (float) (a/(this.Step.Value+1));
                 porce = (float) ((this.Width / 3)* porce);
-                porce = (float) ((this.Height - porce)/ 2);
+                porce = (float) (((this.Width/3) - porce) / 2);
                 item.Margin = new Thickness (porce, 3,porce, 3);
                 item.WidthRequest = (this.Width /3) * (a/ this.Step.Value);
                 switch (a)
