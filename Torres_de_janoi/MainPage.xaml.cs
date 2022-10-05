@@ -38,6 +38,14 @@ namespace Torres_de_janoi
                 item.WidthRequest = (this.Width /3) * (a/ this.Step.Value);
                 switch (a)
                 {
+                    case 1: item.Background = Brush.Black; break;
+                    case 2: item.Background = Brush.Black; break;
+                    case 3: item.Background = Brush.Black; break;
+                    case 4: item.Background = Brush.Black; break;
+                    case 5: item.Background = Brush.Black; break;
+                    case 6: item.Background = Brush.Black; break;
+                    case 7: item.Background = Brush.Black; break;
+                    case 8: item.Background = Brush.Black; break;
 
                 }
             }
