@@ -40,14 +40,14 @@ namespace Torres_de_janoi
                 item.WidthRequest = (this.Width /3) * (a/ this.Step.Value);
                 switch (a)
                 {
-                    case 1: item.Background = Brush.Black; break;
-                    case 2: item.Background = Brush.Black; break;
-                    case 3: item.Background = Brush.Black; break;
-                    case 4: item.Background = Brush.Black; break;
-                    case 5: item.Background = Brush.Black; break;
-                    case 6: item.Background = Brush.Black; break;
-                    case 7: item.Background = Brush.Black; break;
-                    case 8: item.Background = Brush.Black; break;
+                    case 1: item.Background = Brush.Aqua; break;
+                    case 2: item.Background = Brush.Green; break;
+                    case 3: item.Background = Brush.Aquamarine; break;
+                    case 4: item.Background = Brush.BlueViolet; break;
+                    case 5: item.Background = Brush.CadetBlue; break;
+                    case 6: item.Background = Brush.Brown; break;
+                    case 7: item.Background = Brush.DarkCyan; break;
+                    case 8: item.Background = Brush.White; break;
   
                 }
                 to1.Push(item);
@@ -66,24 +66,54 @@ namespace Torres_de_janoi
             {
                 t1.Children.Add(disco);
             }
+            foreach (var disco in to2)
+            {
+                t2.Children.Add(disco);
+            }
+            foreach (var disco in to3)
+            {
+                t3.Children.Add(disco);
+            }
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
             if(this.mov.Count == 0)
             {
-                hanoi((int) this.Step.Value, 1, 3, 2);
+                Hanoi((int) this.Step.Value, 1, 3, 2);
             }
             else
             {
                 Movimiento movs = this.mov[0];
                 if(movs.ori == 1 && movs.des == 2)
                 {
-
+                    to2.Push(to1.Pop());
                 }
+                if(movs.ori == 1 && movs.des == 3)
+                {
+                    to3.Push(to1.Pop());
+                }
+                if (movs.ori == 2 && movs.des == 1)
+                {
+                    to1.Push(to2.Pop());
+                }
+                if (movs.ori == 2 && movs.des == 3)
+                {
+                    to3.Push(to2.Pop());
+                }
+                if (movs.ori == 3 && movs.des == 2)
+                {
+                    to2.Push(to3.Pop());
+                }
+                if (movs.ori == 3 && movs.des == 1)
+                {
+                    to1.Push(to3.Pop());
+                }
+                this.mov.Remove(mov[0]); 
+                showTower();
             }
         }
 
-        public void hanoi(int disco, int ori, int des, int aux)
+        public void Hanoi(int disco, int ori, int des, int aux)
         {
             if(disco == 0)
             {
@@ -91,9 +121,9 @@ namespace Torres_de_janoi
             }
             else
             {
-                hanoi(disco - 1 , ori, aux, des);
+                Hanoi(disco - 1 , ori, aux, des);
                 this.mov.Add(new Movimiento { ori = ori, des = des });
-                hanoi(disco - 1 , aux, des, ori);
+                Hanoi(disco - 1 , aux, des, ori);
             }
         }
     }

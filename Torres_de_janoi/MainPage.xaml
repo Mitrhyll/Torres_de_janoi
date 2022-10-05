@@ -4,9 +4,13 @@
              x:Class="Torres_de_janoi.MainPage">
     <StackLayout VerticalOptions="Center">
         <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="120"/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition />
-                <ColumnDefinition />
+                <ColumnDefinition/>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <StackLayout x:Name="t1" VerticalOptions="End" HorizontalOptions="Center"></StackLayout>
