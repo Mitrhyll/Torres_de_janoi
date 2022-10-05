@@ -69,7 +69,18 @@ namespace Torres_de_janoi
         }
         private void Button_Clicked(object sender, EventArgs e)
         {
+            if(this.mov.Count == 0)
+            {
+                hanoi((int) this.Step.Value, 1, 3, 2);
+            }
+            else
+            {
+                Movimiento movs = this.mov[0];
+                if(movs.ori == 1 && movs.des == 2)
+                {
 
+                }
+            }
         }
 
         public void hanoi(int disco, int ori, int des, int aux)
@@ -77,7 +88,12 @@ namespace Torres_de_janoi
             if(disco == 0)
             {
                 this.mov.Add(new Movimiento { ori = ori, des = des });
-                a
+            }
+            else
+            {
+                hanoi(disco - 1 , ori, aux, des);
+                this.mov.Add(new Movimiento { ori = ori, des = des });
+                hanoi(disco - 1 , aux, des, ori);
             }
         }
     }
