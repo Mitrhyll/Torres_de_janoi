@@ -77,6 +77,7 @@ namespace Torres_de_janoi
             if(disco == 0)
             {
                 this.mov.Add(new Movimiento { ori = ori, des = des });
+                a
             }
         }
     }
