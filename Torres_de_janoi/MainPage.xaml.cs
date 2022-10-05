@@ -115,7 +115,7 @@ namespace Torres_de_janoi
 
         public void Hanoi(int disco, int ori, int des, int aux)
         {
-            if(disco == 0)
+            if(disco == 1)
             {
                 this.mov.Add(new Movimiento { ori = ori, des = des });
             }
