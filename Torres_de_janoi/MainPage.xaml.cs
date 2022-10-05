@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Xamarin.Forms;
+using System.Threading;
 //using Torres_de_janoi.MOVS;
 
 namespace Torres_de_janoi
@@ -75,20 +76,45 @@ namespace Torres_de_janoi
                 t3.Children.Add(disco);
             }
         }
-        private void Button_Clicked(object sender, EventArgs e)
+        public void Button_Clicked(object sender, EventArgs e)
         {
-            if(this.mov.Count == 0)
+            if (this.mov.Count == 0)
             {
-                Hanoi((int) this.Step.Value, 1, 3, 2);
+                    Hanoi((int)this.Step.Value, 1, 3, 2);
+
             }
             else
             {
+                render();
+
+            }
+        }
+
+        public void Hanoi(int disco, int ori, int des, int aux)
+        {
+            if(disco == 1)
+            {
+                this.mov.Add(new Movimiento { ori = ori, des = des });
+            }
+            else
+            {
+                Hanoi(disco - 1 , ori, aux, des);
+                this.mov.Add(new Movimiento { ori = ori, des = des });
+                Hanoi(disco - 1 , aux, des, ori);
+            }
+
+        }
+
+        public void render()
+        {
+            while (this.mov.Count > 0)
+            {
                 Movimiento movs = this.mov[0];
-                if(movs.ori == 1 && movs.des == 2)
+                if (movs.ori == 1 && movs.des == 2)
                 {
                     to2.Push(to1.Pop());
                 }
-                if(movs.ori == 1 && movs.des == 3)
+                if (movs.ori == 1 && movs.des == 3)
                 {
                     to3.Push(to1.Pop());
                 }
@@ -108,23 +134,10 @@ namespace Torres_de_janoi
                 {
                     to1.Push(to3.Pop());
                 }
-                this.mov.Remove(mov[0]); 
+                this.mov.Remove(mov[0]);
                 showTower();
+                //Thread.Sleep(1500);
             }
-        }
-
-        public void Hanoi(int disco, int ori, int des, int aux)
-        {
-            if(disco == 0)
-            {
-                this.mov.Add(new Movimiento { ori = ori, des = des });
-            }
-            else
-            {
-                Hanoi(disco - 1 , ori, aux, des);
-                this.mov.Add(new Movimiento { ori = ori, des = des });
-                Hanoi(disco - 1 , aux, des, ori);
-            }
-        }
+    }
     }
 }
