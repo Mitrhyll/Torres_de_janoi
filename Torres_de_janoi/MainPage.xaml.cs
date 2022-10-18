@@ -76,7 +76,7 @@ namespace Torres_de_janoi
                 t3.Children.Add(disco);
             }
         }
-        public void Button_Clicked(object sender, EventArgs e)
+        private void Button_Clicked(object sender, EventArgs e)
         {
             if (this.mov.Count == 0)
             {

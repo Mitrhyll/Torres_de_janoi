@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "YoutubeSolution": {
+      "commandName": "Project",
+      "sqlDebugging": true
+    }
+  }
+}
